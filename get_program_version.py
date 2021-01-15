@@ -42,3 +42,6 @@ def get_program_version(filepath):
         else:
             print("This program's file version is: " + file_version)
             print("This program's product version is: " + product_version)
+
+
+        return file_version, product_version
