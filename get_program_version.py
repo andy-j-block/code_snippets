@@ -22,7 +22,7 @@
 from win32api import GetFileVersionInfo, HIWORD, LOWORD
 
 
-def get_program_version(filepath):
+def get_program_version(filepath, print_ver=False):
     
         info = GetFileVersionInfo(filepath, '\\')
         
@@ -36,12 +36,14 @@ def get_program_version(filepath):
                           str(HIWORD(info['ProductVersionLS'])) + '.' + \
                           str(LOWORD(info['ProductVersionLS']))
         
-        if file_version == product_version:
-            print("This program's version is: " + file_version)
-        
-        else:
-            print("This program's file version is: " + file_version)
-            print("This program's product version is: " + product_version)
+        if print_ver == True:
+          
+            if file_version == product_version:
+                print("This program's version is: " + file_version)
+            
+            else:
+                print("This program's file version is: " + file_version)
+                print("This program's product version is: " + product_version)
 
 
         return file_version, product_version
