@@ -29,7 +29,7 @@ def read_pdf(filepath, page_nums, drop_cols=None):
     for i in page_nums:
         pdf_table = tabula.read_pdf(filepath, pages=i)
 
-        if drop_cols not None:
+        if drop_cols is not None:
         	pdf_table.drop(columns=drop_cols, inplace=True)
         
         df = pd.concat([df, pdf_table], ignore_index=True)
