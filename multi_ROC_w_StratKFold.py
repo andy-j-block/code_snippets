@@ -49,7 +49,7 @@ def multi_ROC_w_StratKFold(X, y, K, classifiers, classifier_names):
             
             classifier.fit(X.iloc[train], y.iloc[train])
 
-            viz = plot_roc_curve(clf_svc, X.iloc[test], y.iloc[test],
+            viz = plot_roc_curve(classifier, X.iloc[test], y.iloc[test],
                                  name='ROC fold {}'.format(j),
                                  alpha=0.3, lw=1, ax=axs[i])
             
